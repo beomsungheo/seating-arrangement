@@ -1,0 +1,83 @@
+{
+  "name": "seating-arrangement",
+  "displayName": "자리 배치 프로그램",
+  "description": "교실 자리를 무작위로 섞고, 드래그로 바꾸고, 사용 안 하는 좌석을 지정할 수 있는 패널",
+  "version": "0.0.2",
+  "publisher": "local-dev",
+  "license": "MIT",
+  "engines": {
+    "vscode": "^1.90.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "main": "./extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "seatingArrangement.open",
+        "title": "자리 배치: 패널 열기",
+        "category": "자리 배치"
+      },
+      {
+        "command": "seatingArrangement.reloadStudents",
+        "title": "자리 배치: 학생 목록 다시 읽기",
+        "category": "자리 배치"
+      },
+      {
+        "command": "seatingArrangement.importStudents",
+        "title": "자리 배치: 파일에서 학생 목록 가져오기",
+        "category": "자리 배치"
+      }
+    ],
+    "configuration": {
+      "title": "자리 배치 프로그램",
+      "properties": {
+        "seatingArrangement.rows": {
+          "type": "number",
+          "default": 6,
+          "minimum": 1,
+          "maximum": 20,
+          "description": "좌석 행 수"
+        },
+        "seatingArrangement.cols": {
+          "type": "number",
+          "default": 5,
+          "minimum": 1,
+          "maximum": 12,
+          "description": "좌석 열 수"
+        },
+        "seatingArrangement.studentListFile": {
+          "type": "string",
+          "default": "학생.txt",
+          "description": "워크스페이스 기준 학생 목록 파일 경로. 쉼표 또는 줄바꿈으로 이름을 구분합니다."
+        },
+        "seatingArrangement.students": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "default": [],
+          "description": "학생 목록. 패널의 '학생 목록 편집'에서 바꿔도 여기 저장되며, Settings Sync로 다른 코퓨턴에도 전달됩니다."
+        }
+      }
+    }
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/beomsungheo/seating-arrangement.git"
+  },
+  "bugs": {
+    "url": "https://github.com/beomsungheo/seating-arrangement/issues"
+  },
+  "homepage": "https://github.com/beomsungheo/seating-arrangement#readme",
+  "keywords": [
+    "자리배치",
+    "좌석",
+    "seating",
+    "classroom",
+    "seat",
+    "shuffle",
+    "교실"
+  ]
+}
